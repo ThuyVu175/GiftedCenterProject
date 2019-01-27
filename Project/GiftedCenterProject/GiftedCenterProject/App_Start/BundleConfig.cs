@@ -26,6 +26,59 @@ namespace GiftedCenterProject
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //LAYOUT
+            bundles.Add(new StyleBundle("~/Content/layout").Include(
+                     "~/Content/bootstrap.min.css",
+                     "~/Content/fontawesome-all.min.css",
+                     "~/Content/dataTables.bootstrap4.css",
+                     "~/Content/sb-admin.css"
+                     ));
+            bundles.Add(new ScriptBundle("~/Scripts/layout").Include(
+                     
+                    
+                     "~/Scripts/jquery-3.3.1.min.js",
+                     "~/Scripts/bootstrap.bundle.min.js",
+                     "~/Scripts/jquery.easing.1.3.js",
+                     "~/Scripts/Chart.min.js",
+                     "~/Scripts/jquery.dataTables.js",
+                     "~/Scripts/dataTables.bootstrap4.js",
+                     "~/Scripts/sb-admin.min.js",
+                     "~/Scripts/datatables-demo.js",
+                     "~/Scripts/chart-area-demo.js"
+                     ));
+
+
+            // < link href = "vendor/bootstrap/css/bootstrap.min.css" rel = "stylesheet" >
+            //  < link href = "vendor/fontawesome-free/css/all.min.css" rel = "stylesheet" type = "text/css" >
+            //  < link href = "vendor/datatables/dataTables.bootstrap4.css" rel = "stylesheet" >
+            //  < link href = "css/sb-admin.css" rel = "stylesheet" >
+
+            //  <!-- Bootstrap core JavaScript-->
+            //  <script src="vendor/jquery/jquery.min.js"></script>
+            //<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            //<!-- Core plugin JavaScript-->
+            // <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            //
+            //<!-- Page level plugin JavaScript-->
+            //<script src="vendor/chart.js/Chart.min.js"></script>
+            // <script src="vendor/datatables/jquery.dataTables.js"></script>
+            // <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+            // <!-- Custom scripts for all pages-->
+            // <script src="js/sb-admin.min.js"></script>
+            // <!-- Demo scripts for this page-->
+            //<script src="js/demo/datatables-demo.js"></script>
+            // <script src="js/demo/chart-area-demo.js"></script>
+
+
+
+            //LOGIN
+            bundles.Add(new StyleBundle("~/Content/login").Include(
+                     "~/Content/bootstrap.css",
+                     "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/Scripts/login").Include(
+                     "~/Scripts/bootstrap.js",
+                     "~/Scripts/respond.js"));
         }
     }
 }

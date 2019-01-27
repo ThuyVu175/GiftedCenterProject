@@ -13,6 +13,11 @@ namespace GiftedCenterProject.Controllers
             return View();
         }
 
+        public ActionResult DashBoard()
+        {
+            return View("DashBoard");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
