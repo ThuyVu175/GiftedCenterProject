@@ -75,10 +75,11 @@ namespace GiftedCenterProject
             //LOGIN
             bundles.Add(new StyleBundle("~/Content/login").Include(
                      "~/Content/bootstrap.css",
-                     "~/Content/site.css"));
+                     "~/Content/Login-Form-Dark.css",
+                     "~/Content/fontawesome-all.min.css"));
             bundles.Add(new ScriptBundle("~/Scripts/login").Include(
-                     "~/Scripts/bootstrap.js",
-                     "~/Scripts/respond.js"));
+                     "~/Scripts/jquery-3.3.1.min.js",
+                     "~/Scripts/bootstrap.js"));
         }
     }
 }
