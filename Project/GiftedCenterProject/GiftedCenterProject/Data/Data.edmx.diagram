@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a48378844c1f482f8ae89f6a7490c3fa" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="giftedCenterManModel.Account" Width="1.5" PointX="6.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="giftedCenterManModel.Class" Width="1.5" PointX="7" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="giftedCenterManModel.GroupSubject" Width="1.5" PointX="0.625" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="giftedCenterManModel.Image" Width="1.5" PointX="0.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="giftedCenterManModel.Lecturer" Width="1.5" PointX="10.125" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="giftedCenterManModel.Position" Width="1.5" PointX="4" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="giftedCenterManModel.Sign_Up" Width="1.5" PointX="4.625" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="giftedCenterManModel.Student" Width="1.5" PointX="10.375" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="giftedCenterManModel.Student_Class" Width="1.5" PointX="10.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="giftedCenterManModel.Subject" Width="1.5" PointX="3.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="giftedCenterManModel.Video" Width="1.5" PointX="0.5" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="giftedCenterManModel.FK__Account__positio__0519C6AF" ManuallyRouted="false" />
+        <AssociationConnector Association="giftedCenterManModel.FK__Student__account__09DE7BCC" ManuallyRouted="false" />
+        <AssociationConnector Association="giftedCenterManModel.FK__CLASS__lecturerI__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="giftedCenterManModel.FK__CLASS__subjectID__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="giftedCenterManModel.FK__Student_C__class__412EB0B6" ManuallyRouted="true" >
+          <ConnectorPoint PointX="7.75" PointY="4.3167936197916665" />
+          <ConnectorPoint PointX="7.75" PointY="7.0574446614583337" />
+          <ConnectorPoint PointX="10.25" PointY="7.0574446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="giftedCenterManModel.FK__Subject__categor__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="giftedCenterManModel.FK__Image__subjectID__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="giftedCenterManModel.FK__SIGN_UP__subject__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="giftedCenterManModel.FK__Student_C__stude__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="giftedCenterManModel.FK__Video__subjectID__2B3F6F97" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

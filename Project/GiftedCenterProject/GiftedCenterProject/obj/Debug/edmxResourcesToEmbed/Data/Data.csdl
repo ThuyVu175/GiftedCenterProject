@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="giftedCenterManModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accountName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="passWord" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="positionID" Type="Int32" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isActive" Type="Byte" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Position" Relationship="Self.FK__Account__positio__0519C6AF" FromRole="Account" ToRole="Position" />
+    <NavigationProperty Name="Student" Relationship="Self.FK__Student__account__09DE7BCC" FromRole="Account" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lecturerID" Type="Int32" Nullable="false" />
+    <Property Name="subjectID" Type="Int32" Nullable="false" />
+    <Property Name="startDay" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="finishDay" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isActive" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Lecturer" Relationship="Self.FK__CLASS__lecturerI__3A81B327" FromRole="Class" ToRole="Lecturer" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK__CLASS__subjectID__3B75D760" FromRole="Class" ToRole="Subject" />
+    <NavigationProperty Name="Student_Class" Relationship="Self.FK__Student_C__class__412EB0B6" FromRole="Class" ToRole="Student_Class" />
+  </EntityType>
+  <EntityType Name="GroupSubject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isActive" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK__Subject__categor__21B6055D" FromRole="GroupSubject" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="subjectID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isActive" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK__Image__subjectID__267ABA7A" FromRole="Image" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="Lecturer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="detailDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sexual" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isActive" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Class" Relationship="Self.FK__CLASS__lecturerI__3A81B327" FromRole="Lecturer" ToRole="Class" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isActive" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK__Account__positio__0519C6AF" FromRole="Position" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="Sign_Up">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="subjectID" Type="Int32" Nullable="false" />
+    <Property Name="createdDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isActive" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK__SIGN_UP__subject__300424B4" FromRole="Sign_Up" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accountID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Paid" Type="Int32" />
+    <Property Name="Owed" Type="Int32" />
+    <Property Name="Sexual" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isActive" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK__Student__account__09DE7BCC" FromRole="Student" ToRole="Account" />
+    <NavigationProperty Name="Student_Class" Relationship="Self.FK__Student_C__stude__403A8C7D" FromRole="Student" ToRole="Student_Class" />
+  </EntityType>
+  <EntityType Name="Student_Class">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentID" Type="Int32" Nullable="false" />
+    <Property Name="classID" Type="Int32" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isActive" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Class" Relationship="Self.FK__Student_C__class__412EB0B6" FromRole="Student_Class" ToRole="Class" />
+    <NavigationProperty Name="Student" Relationship="Self.FK__Student_C__stude__403A8C7D" FromRole="Student_Class" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="categoryID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isActive" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Class" Relationship="Self.FK__CLASS__subjectID__3B75D760" FromRole="Subject" ToRole="Class" />
+    <NavigationProperty Name="GroupSubject" Relationship="Self.FK__Subject__categor__21B6055D" FromRole="Subject" ToRole="GroupSubject" />
+    <NavigationProperty Name="Image1" Relationship="Self.FK__Image__subjectID__267ABA7A" FromRole="Subject" ToRole="Image" />
+    <NavigationProperty Name="Sign_Up" Relationship="Self.FK__SIGN_UP__subject__300424B4" FromRole="Subject" ToRole="Sign_Up" />
+    <NavigationProperty Name="Video" Relationship="Self.FK__Video__subjectID__2B3F6F97" FromRole="Subject" ToRole="Video" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="subjectID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="isActive" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK__Video__subjectID__2B3F6F97" FromRole="Video" ToRole="Subject" />
+  </EntityType>
+  <Association Name="FK__Account__positio__0519C6AF">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="positionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Student__account__09DE7BCC">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="accountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CLASS__lecturerI__3A81B327">
+    <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="1" />
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecturer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="lecturerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CLASS__subjectID__3B75D760">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="subjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Student_C__class__412EB0B6">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="Student_Class" Type="Self.Student_Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Student_Class">
+        <PropertyRef Name="classID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subject__categor__21B6055D">
+    <End Role="GroupSubject" Type="Self.GroupSubject" Multiplicity="1" />
+    <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupSubject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Subject">
+        <PropertyRef Name="categoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Image__subjectID__267ABA7A">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="Image" Type="Self.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="subjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SIGN_UP__subject__300424B4">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="Sign_Up" Type="Self.Sign_Up" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sign_Up">
+        <PropertyRef Name="subjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Student_C__stude__403A8C7D">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Student_Class" Type="Self.Student_Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Student_Class">
+        <PropertyRef Name="studentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Video__subjectID__2B3F6F97">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="Video" Type="Self.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="subjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Connect" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Account" EntityType="Self.Account" />
+    <EntitySet Name="Class" EntityType="Self.Class" />
+    <EntitySet Name="GroupSubject" EntityType="Self.GroupSubject" />
+    <EntitySet Name="Image" EntityType="Self.Image" />
+    <EntitySet Name="Lecturer" EntityType="Self.Lecturer" />
+    <EntitySet Name="Position" EntityType="Self.Position" />
+    <EntitySet Name="Sign_Up" EntityType="Self.Sign_Up" />
+    <EntitySet Name="Student" EntityType="Self.Student" />
+    <EntitySet Name="Student_Class" EntityType="Self.Student_Class" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" />
+    <EntitySet Name="Video" EntityType="Self.Video" />
+    <AssociationSet Name="FK__Account__positio__0519C6AF" Association="Self.FK__Account__positio__0519C6AF">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Student__account__09DE7BCC" Association="Self.FK__Student__account__09DE7BCC">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CLASS__lecturerI__3A81B327" Association="Self.FK__CLASS__lecturerI__3A81B327">
+      <End Role="Lecturer" EntitySet="Lecturer" />
+      <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CLASS__subjectID__3B75D760" Association="Self.FK__CLASS__subjectID__3B75D760">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Student_C__class__412EB0B6" Association="Self.FK__Student_C__class__412EB0B6">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Student_Class" EntitySet="Student_Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subject__categor__21B6055D" Association="Self.FK__Subject__categor__21B6055D">
+      <End Role="GroupSubject" EntitySet="GroupSubject" />
+      <End Role="Subject" EntitySet="Subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Image__subjectID__267ABA7A" Association="Self.FK__Image__subjectID__267ABA7A">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Image" EntitySet="Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SIGN_UP__subject__300424B4" Association="Self.FK__SIGN_UP__subject__300424B4">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Sign_Up" EntitySet="Sign_Up" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Student_C__stude__403A8C7D" Association="Self.FK__Student_C__stude__403A8C7D">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Student_Class" EntitySet="Student_Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Video__subjectID__2B3F6F97" Association="Self.FK__Video__subjectID__2B3F6F97">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

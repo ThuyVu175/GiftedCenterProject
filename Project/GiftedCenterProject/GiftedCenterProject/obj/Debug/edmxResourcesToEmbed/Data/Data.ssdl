@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="giftedCenterManModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="accountName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="passWord" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="positionID" Type="int" Nullable="false" />
+    <Property Name="createDate" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lecturerID" Type="int" Nullable="false" />
+    <Property Name="subjectID" Type="int" Nullable="false" />
+    <Property Name="startDay" Type="date" Nullable="false" />
+    <Property Name="finishDay" Type="date" Nullable="false" />
+    <Property Name="createDate" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GroupSubject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="createDate" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="subjectID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1" />
+    <Property Name="Content" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="createDate" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lecturer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="detailDescription" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Sexual" Type="nvarchar" MaxLength="5" />
+    <Property Name="Image" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="createDate" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="createDate" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sign_Up">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="phoneNumber" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="subjectID" Type="int" Nullable="false" />
+    <Property Name="createdDate" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="accountID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="15" />
+    <Property Name="Paid" Type="int" />
+    <Property Name="Owed" Type="int" />
+    <Property Name="Sexual" Type="nvarchar" MaxLength="5" />
+    <Property Name="createDate" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student_Class">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentID" Type="int" Nullable="false" />
+    <Property Name="classID" Type="int" Nullable="false" />
+    <Property Name="createDate" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="categoryID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="createDate" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="subjectID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="createDate" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Account__positio__0519C6AF">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="positionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CLASS__lecturerI__3A81B327">
+    <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="1" />
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecturer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="lecturerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CLASS__subjectID__3B75D760">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="subjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Image__subjectID__267ABA7A">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="Image" Type="Self.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="subjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SIGN_UP__subject__300424B4">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="Sign_Up" Type="Self.Sign_Up" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sign_Up">
+        <PropertyRef Name="subjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Student__account__09DE7BCC">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="accountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Student_C__class__412EB0B6">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="Student_Class" Type="Self.Student_Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Student_Class">
+        <PropertyRef Name="classID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Student_C__stude__403A8C7D">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Student_Class" Type="Self.Student_Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Student_Class">
+        <PropertyRef Name="studentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subject__categor__21B6055D">
+    <End Role="GroupSubject" Type="Self.GroupSubject" Multiplicity="1" />
+    <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupSubject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Subject">
+        <PropertyRef Name="categoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Video__subjectID__2B3F6F97">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="Video" Type="Self.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="subjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="giftedCenterManModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupSubject" EntityType="Self.GroupSubject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lecturer" EntityType="Self.Lecturer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sign_Up" EntityType="Self.Sign_Up" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_Class" EntityType="Self.Student_Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Account__positio__0519C6AF" Association="Self.FK__Account__positio__0519C6AF">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CLASS__lecturerI__3A81B327" Association="Self.FK__CLASS__lecturerI__3A81B327">
+      <End Role="Lecturer" EntitySet="Lecturer" />
+      <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CLASS__subjectID__3B75D760" Association="Self.FK__CLASS__subjectID__3B75D760">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Image__subjectID__267ABA7A" Association="Self.FK__Image__subjectID__267ABA7A">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Image" EntitySet="Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SIGN_UP__subject__300424B4" Association="Self.FK__SIGN_UP__subject__300424B4">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Sign_Up" EntitySet="Sign_Up" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Student__account__09DE7BCC" Association="Self.FK__Student__account__09DE7BCC">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Student_C__class__412EB0B6" Association="Self.FK__Student_C__class__412EB0B6">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Student_Class" EntitySet="Student_Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Student_C__stude__403A8C7D" Association="Self.FK__Student_C__stude__403A8C7D">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Student_Class" EntitySet="Student_Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subject__categor__21B6055D" Association="Self.FK__Subject__categor__21B6055D">
+      <End Role="GroupSubject" EntitySet="GroupSubject" />
+      <End Role="Subject" EntitySet="Subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Video__subjectID__2B3F6F97" Association="Self.FK__Video__subjectID__2B3F6F97">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

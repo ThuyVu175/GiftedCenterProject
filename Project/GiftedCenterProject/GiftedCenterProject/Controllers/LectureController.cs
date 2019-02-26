@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace GiftedCenterProject.Controllers
 {
-    public class AccountController : Controller
+    public class LectureController : Controller
     {
-        // GET: Account
+        // GET: Lecture
         public ActionResult Index()
         {
             return View();

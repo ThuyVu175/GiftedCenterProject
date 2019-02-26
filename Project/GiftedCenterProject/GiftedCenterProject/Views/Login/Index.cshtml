@@ -14,9 +14,9 @@
         <form method="post">
             <h3 class="text-white">Đăng nhập</h3>
             <div class="illustration"><i class="fa fa-lock"></i></div>
-            <div class="form-group"><input class="form-control" type="text" placeholder="Tài khoản"></div>
-            <div class="form-group"><input class="form-control" type="password" placeholder="Mật khẩu"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block">Đăng nhập</button></div>
+            <div class="form-group"><input class="form-control" type="text" placeholder="Tài khoản" id="txtUsername"></div>
+            <div class="form-group"><input class="form-control" type="password" placeholder="Mật khẩu" id="txtPassword"></div>
+            <div class="form-group"><button class="btn btn-primary btn-block" onclick="Login()">Đăng nhập</button></div>
             <a href="#" class="forgot">Quên tài khoản hoặc mật khẩu?</a>
             <a href="#" class="forgot" data-toggle="modal" data-target="#signUpModal">Bạn chưa có tài khoản?Đăng ký</a>
         </form>
@@ -29,23 +29,29 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Đăng ký</h5>
+                <h5 class="modal-title text-danger" id="exampleModalLabel">Trung tâm nghệ thuật EAM</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="form-group"><input class="form-control" type="text" placeholder="Tên Tài khoản"></div>
-                <div class="form-group"><input class="form-control" type="password" placeholder="Mật khẩu"></div>
-                <div class="form-group"><input class="form-control" type="password" placeholder="Xác nhận mật khẩu"></div>
-                <div class="form-group"><input class="form-control" type="email" placeholder="Email"></div>
-                <div class="form-group"><input class="form-control" type="number" placeholder="Số điện thoại"></div>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-success" href="#">Đăng ký</a>
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Thoát</button>
-
-            </div>
+            <div class="modal-body m-3">
+                <h5 class="text-info mb-3">Đăng kí tài khoản</h5>
+                <div class="row mb-3"><input class="form-control" type="text" placeholder="Tên Tài khoản"></div>
+                <div class="row mb-3"><input class="form-control" type="password" placeholder="Mật khẩu"></div>
+                <div class="row mb-3"><input class="form-control" type="password" placeholder="Xác nhận mật khẩu"></div>
+                <div class="row mb-3"><input class="form-control" type="email" placeholder="Email"></div>
+                <div class="row mb-3"><input class="form-control" type="number" placeholder="Số điện thoại"></div> 
+                <div class="row mb-3">
+                    <div class="col-md-6 ">
+                        <button class="btn btn-success text-center" href="#">Đăng ký</button>
+                    </div>
+                    <div class="col-md-6 ">
+                        <a href="/login/Index" class="text-decoration-none text-info text-right">Đã có tài khoản? Đăng nhập</a>
+                    </div>
+                </div>
+                
+            </div>  
+                  
         </div>
     </div>
 </div>
