@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace GiftedCenterProject.Controllers
 {
-    public class LectureController : Controller
+    public class LecturerController : Controller
     {
         Connect cnn = new Connect();
         // GET: Lecture
@@ -26,6 +26,11 @@ namespace GiftedCenterProject.Controllers
                                  where count.isActive.Equals(1)
                                  select count).Count();
             
+        }
+
+        public ActionResult DetailLecturer()
+        {
+            return View();
         }
 
 

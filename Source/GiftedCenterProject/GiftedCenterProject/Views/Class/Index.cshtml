@@ -1,16 +1,19 @@
 ﻿
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using GiftedCenterProject.Data
+@model List<Class>
 
 <div class="container-fluid">
     <div class="row">
-        <h4 class="text-danger ml-3 mb-4">NGƯỜI DÙNG</h4>
+        <h4 class="text-danger ml-3 mb-4">LỚP HỌC</h4>
     </div>
     <div class="row">
         <div class="form-group col-md-6 padd-0">
-            <input class="form-control" placeholder="Nhập tên người dùng" />
+            <input class="form-control" placeholder="Nhập tên khóa học" />
         </div>
         <div class="col-md-6">
             <button class="btn btn-primary">
@@ -18,57 +21,57 @@
                 Tìm kiếm
             </button>
 
-            <button class="btn btn-success" data-toggle="modal" data-target="#addUser">
+            <button class="btn btn-success" data-toggle="modal" data-target="#addSubject">
                 <i class="fa fa-plus"></i>
-                Người dùng
-            </button>
-
-            <button class="btn btn-warning">
-                <i class="fa fa-sign-out-alt"></i>
-                Xuất file
+                Khóa học
             </button>
         </div>
 
     </div>
-   
+
     <div class="cus-body">
         <table class="table table-bordered table-hover table-striped">
             <thead>
+                
                 <tr>
-
-                    <th class="text-center">Tài khoản</th>
-                    <th class="text-center">Số điện thoại</th>
-                    <th class="text-center">Email</th>
-                    <th class="text-center">Chức vụ</th>
+                    <th>STT</th>
+                    <th class="text-center">Tên lớp học</th>
+                    <th class="text-center">Danh mục khóa học</th>
+                    <th class="text-center">Mô tả</th>
+                    <th class="text-center">Ảnh đại diện</th>
                     <th class="text-center">Ngày tạo</th>
-                    <th class="text-center">Thao tác </th>
-                    <th style="width:50px;" class="text-center"><input type="checkbox" /></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="text-center tr-detail-item" style="cursor: pointer; color: #1b6aaa; width: 165px;">NhatVu</td>
-                    <td class="text-center" >0965520566</td>
-                    <td class="text-center" >thuyvtt620@gmail.com</td>
-                    <td class="text-center">Admin</td>
-                    <td class="text-center" >17/05/2018</td>
-                    <td class="text-center" >
+                @{
+                    int stt = 0;
+                    foreach ( Class cl in Model)
+                    {
+                        <tr>
+                            <td class="text-center tr-detail-item" style="cursor: pointer; color: #1b6aaa; width: 165px;">Vẽ màu nước</td>
+                            <td class="text-center">Vẽ</td>
+                            <td class="text-center">Vẽ màu nước</td>
+                            <td class="text-center">link ảnh địa diện</td>
+                            <td class="text-center">
 
-                        <i class="fa fa-share" title="Xem chi tiết" style="color: lightgreen;"></i>
-                        &nbsp; &nbsp;<i class="fa fa-edit fa-sm " title="Sửa giáo viên" style="color: blue;" data-toggle="modal" data-target="#editUser"></i>
-                        &nbsp; &nbsp;<i class="fa fa-trash" title="Xóa giáo viên" style="color: red;"></i>
-                    </td>
-                    <td style="width:50px;" class="text-center">
-                        <input  type="checkbox" />
-                    </td>
-                </tr>
+                                <i class="fa fa-share" title="Xem chi tiết" style="color: lightgreen;"></i>
+                                &nbsp; &nbsp;<i class="fa fa-edit fa-sm " title="Sửa giáo viên" style="color: blue;" data-toggle="modal" data-target="#editSubject"></i>
+                                &nbsp; &nbsp;<i class="fa fa-trash" title="Xóa giáo viên" style="color: red;"></i>
+                            </td>
+                        </tr>
+
+                    }
+
+                }
+                
         </table>
     </div>
 </div>
 
 
 <!--Modal Add User-->
-<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addSubject" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -81,7 +84,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <label>Tên người dùng</label>
+                            <label>Tên khóa học</label>
                         </div>
                         <div class="col-md-8">
                             <input class="form-control" type="text" />
@@ -90,16 +93,7 @@
 
                     <div class="row mt-3">
                         <div class="col-md-4">
-                            <label>Email</label>
-                        </div>
-                        <div class="col-md-8">
-                            <input class="form-control" type="number" />
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="col-md-4">
-                            <label>Chức vụ</label>
+                            <label>Danh mục</label>
                         </div>
                         <div class="col-md-8">
                             <select class="form-control" id="sex">
@@ -111,12 +105,39 @@
 
                     <div class="row mt-3">
                         <div class="col-md-4">
-                            <label>Số điện thoại</label>
+                            <label>Mô tả</label>
                         </div>
                         <div class="col-md-8">
                             <input class="form-control" type="text" />
                         </div>
-                    </div>                  
+                    </div>
+
+
+
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <label>Link ảnh đại diện</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input class="form-control" type="text" />
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <label>Link ảnh học viên</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input class="form-control" type="text" />
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <label>Link video học viên</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input class="form-control" type="text" />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -129,7 +150,7 @@
 
 
 <!--Modal Edit user -->
-<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editSubject" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -178,14 +199,19 @@
                             <input class="form-control" type="text" />
                         </div>
                     </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success"><i class="fa fa-save"></i>Thêm mới</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success"><i class="fa fa-save"></i>Thêm mới</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+
+
+
+
 
 
 
